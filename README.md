@@ -39,9 +39,12 @@ In Ubuntu, Mint and Debian you can install Python 3 like this:
 
     $ sudo apt-get install python3
 
-For other Linux flavors, OS X and Windows, packages are available at
+On OS X you can install Python 3 using [Homebrew] (http://brew.sh):
 
-  http://www.python.org/getit/
+    $ brew install python3
+
+For other Linux flavors and Windows, packages are available from
+[the Python website] (http://www.python.org/getit/).
 
 
 Quick start
@@ -81,12 +84,38 @@ In Windows, the script is generally installed in
 \PythonNN\Scripts. So, type check and run a program like this (replace
 \Python33 with your Python installation path):
 
-    C:\>\Python33\python \Python33\Scripts\mypy PROGRAM
+```bat
+C:\>\Python33\python \Python33\Scripts\mypy PROGRAM
+```
     
 Mypy programs are valid Python programs, so you can use the Python
 interpreter to run them without type checking:
 
     $ python3 PROGRAM
+
+
+Using a virtualenv
+------------------
+
+Rather than installing mypy globally you can use a [virtualenv]
+(http://virtualenv.org).  The easiest way is with virtualenvwrapper:
+
+    $ mkvirtualenv -p "$(which python3)" mypy
+    $ python3 setup.py install
+
+You should then be able to run
+
+    $ python3 tests.py
+
+and/or
+
+    $ mypy tests.py
+
+to test mypy.
+
+If you are new to virtualenvs, you may find the [resources in pycrumbs]
+(https://github.com/kirang89/pycrumbs/blob/master/pycrumbs.md#environments-and-environment-management)
+useful.
 
 
 Web site and documentation
